@@ -1,9 +1,25 @@
-interface IParticipant {
+export interface IParticipant {
     id: number;
     name: string;
-    gender: string;
-    age: number;
+    gender: 'MALE' | 'FEMALE';
+    birthDate: string;
     club: string;
+    disciplines?: IDiscipline[];
 }
 
-export type { IParticipant };
+export interface IDiscipline {
+    id: number;
+    name: string;
+    resultType: 'TIME' | 'DISTANCE' | 'POINTS';
+    participants?: IParticipant[];
+}
+
+export interface IResult {
+    id: number;
+    participantName: string;
+    disciplineName: string;
+    date: string;
+    resultValue: string;
+}
+
+
